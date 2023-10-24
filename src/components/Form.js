@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/Form.css"
 
 const Form = (props) => {
   const [input, setInput] = useState("");
@@ -19,7 +20,7 @@ const Form = (props) => {
   };
 
   return (
-    <form className="form" onSubmit={inputSubmit}>
+    <form className="taskForm" onSubmit={inputSubmit}>
       <input
         type="text"
         placeholder="What do you need to do?"
@@ -27,7 +28,7 @@ const Form = (props) => {
         className="taskInput"
         onChange={inputChange}
       />
-      <button className="taskButton">Add Task</button>
+      <input type="submit" className="taskButton" value="add task"/>
     </form>
   );
 };

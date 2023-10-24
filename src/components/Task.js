@@ -1,18 +1,14 @@
 import React, { useState } from "react";
-import "./Task.css"
+import "../styles/Task.css";
 
 function Task({ tasks, completeTask, deleteTask }) {
+  const [status, setStatus] = useState("task completed");
 
   return tasks.map((task, index) => (
-    <div
-      key={index}
-      className={task.isComplete ? "task-row complete" : "task-row"}
-    >
+    <div key={index} className={task.isComplete ? "task complete" : "task"}>
       <p>{task.name}</p>
-      <button onClick={() => completeTask(task.id)}>
-        complete
-      </button>
-      <button key={task.id} onClick={() => deleteTask(task.id)}>
+      <input type="checkbox" onClick={() => completeTask(task.id)}/>
+      <button className="deleteButton" key={task.id} onClick={() => deleteTask(task.id)}>
         delete
       </button>
     </div>
