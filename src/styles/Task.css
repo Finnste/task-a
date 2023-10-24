@@ -37,3 +37,7 @@
     margin: 5px;
     font-size: 20px;
 }
+
+li {
+    list-style: none;
+}

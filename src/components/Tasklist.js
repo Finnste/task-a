@@ -45,13 +45,19 @@ const TaskList = () => {
     setTasks(deleteArr);
     // decrement the open tasks counter using redux
     dispatch(decrement());
-      };
+  };
 
   return (
     <div className="taskList">
       <h1>Task List</h1>
       <Form onSubmit={createTask} />
-      <Task tasks={tasks} completeTask={completeTask} deleteTask={deleteTask} />
+      <ul>
+        <Task
+          tasks={tasks}
+          completeTask={completeTask}
+          deleteTask={deleteTask}
+        />
+      </ul>
       <div className="counter">{count} unfinished tasks</div>
     </div>
   );
