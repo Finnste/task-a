@@ -1,29 +1,36 @@
 import React, { useState } from "react";
 import Task from "./Task";
 import Form from "./Form";
-import "../styles/Tasklist.css"
+import "../styles/Tasklist.css";
+import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment } from "../redux/counter";
 
 const TaskList = () => {
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
   const [tasks, setTasks] = useState([]);
   const [open, setOpen] = useState(0);
 
-  // create a new task
+  // creates a new task
   const createTask = (task) => {
     if (task.name != "") {
       const newTasks = [task, ...tasks];
       setTasks(newTasks);
-      setOpen((open) => open + 1);
+      // increment the open tasks counter using redux
+      dispatch(increment());
     }
   };
 
+  // marks task as complete
   const completeTask = (id) => {
     let updatedTasks = tasks.map((task) => {
       if (task.id === id) {
         if (!task.isComplete) {
-          setOpen((open) => open - 1);
+          // decrement the open tasks counter using redux
+          dispatch(decrement());
         } else {
-            setOpen((open) => open + 1);
-
+          // increment the open tasks counter using redux
+          dispatch(increment());
         }
         task.isComplete = !task.isComplete;
       }
@@ -32,25 +39,20 @@ const TaskList = () => {
     setTasks(updatedTasks);
   };
 
+  // deletes task from list
   const deleteTask = (id) => {
     const deleteArr = [...tasks].filter((task) => task.id !== id);
     setTasks(deleteArr);
-    setOpen((open) => open - 1);
-  };
-
-  const editTask = (id) => {};
+    // decrement the open tasks counter using redux
+    dispatch(decrement());
+      };
 
   return (
     <div className="taskList">
       <h1>Task List</h1>
       <Form onSubmit={createTask} />
-      <Task
-        tasks={tasks}
-        completeTask={completeTask}
-        deleteTask={deleteTask}
-        editTask={editTask}
-      />
-      <div className="counter">{open} unfinished tasks</div>
+      <Task tasks={tasks} completeTask={completeTask} deleteTask={deleteTask} />
+      <div className="counter">{count} unfinished tasks</div>
     </div>
   );
 };

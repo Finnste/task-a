@@ -6,7 +6,7 @@ function Task({ tasks, completeTask, deleteTask }) {
 
   return tasks.map((task, index) => (
     <div key={index} className={task.isComplete ? "task complete" : "task"}>
-      <p>{task.name}</p>
+      <div>{task.name}</div>
       <input type="checkbox" onClick={() => completeTask(task.id)}/>
       <button className="deleteButton" key={task.id} onClick={() => deleteTask(task.id)}>
         delete
