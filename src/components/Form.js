@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../styles/Form.css"
 
+
+// this is the form to create new tasks
 const Form = (props) => {
   const [input, setInput] = useState("");
 

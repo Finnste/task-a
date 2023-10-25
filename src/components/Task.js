@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "../styles/Task.css";
 
+//renders the created tasks
 function Task({ tasks, completeTask, deleteTask }) {
   const [status, setStatus] = useState("task completed");
   const [editable, setEditable] = useState(false);
 
+  //resets the edibility of the task title
   const endEdit = (e) => {
     console.log(e.which)
     if (e.which == 10 || e.which == 13) {
@@ -26,7 +28,7 @@ function Task({ tasks, completeTask, deleteTask }) {
         onClick={() => completeTask(task.id)}
       />
       <button
-        className="deleteButton"
+        className="dButton"
         key={task.id}
         onClick={() => deleteTask(task.id)}
       >
@@ -34,7 +36,7 @@ function Task({ tasks, completeTask, deleteTask }) {
       </button>
 
       <button
-        className="deleteButton"
+        className="dButton"
         onClick={() => setEditable(!editable)}
       >
         edit
