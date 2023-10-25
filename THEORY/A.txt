@@ -1,0 +1,19 @@
+Part 1 - Basic Knowledge:
+
+1. What is React.js?
+React.js is an open-source JavaScript library for building user interfaces, 
+particularly for building single-page applications and interactive user interfaces. 
+It is very popular by developers to create web applications 
+with dynamic, responsive user interfaces.
+
+2. What are the key features of React.js?
+
+3. What is JSX?
+
+4. What is a virtual DOM?
+
+5. What is the difference between props and state?
+
+6. What is the role of Redux in a React.js application?
+
+7. What is the purpose of React Router?
