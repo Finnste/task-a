@@ -20,7 +20,7 @@ const Form = (props) => {
   };
 
   return (
-    <form className="taskForm" onSubmit={inputSubmit}>
+    <form onSubmit={inputSubmit}>
       <input
         type="text"
         placeholder="What do you need to do?"

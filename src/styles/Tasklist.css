@@ -1,19 +1,24 @@
 .taskList {
-    height: 90vh;
-    width: 50vw;
-    margin: 0 auto;
-    padding: 50px;
-    border: 4px solid black;
-    background-color: rgba(178, 178, 179, 0.5);
-    overflow: scroll
+  width: 50vw;
+  margin: 0 auto;
+  margin-top: 5%;
+  padding: 50px;
 }
 
 .counter {
-    font-size: 20px;
-    border-radius: 4px;
-    border: 2px solid black;
-    width: max-content;
-    margin: 20px auto;
-    padding: 10px;
-    vertical-align: bottom;
+  font-size: 20px;
+  border-radius: 4px;
+  border: 2px solid black;
+  width: max-content;
+  margin: 20px auto;
+  padding: 10px;
+  vertical-align: bottom;
+}
+
+@media screen and (max-width: 769px) {
+  .taskList {
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+  }
 }
